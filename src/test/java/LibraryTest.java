@@ -16,7 +16,7 @@ public class LibraryTest {
     List<Book> booksList = new ArrayList<>();
     public Library library = new Library(booksList);
 
-    @BeforeClass
+    @Before
     public void setUp() {
         Book a = new Book("John Steinbeck", "Tortilla Flat", 25, 2000);
         Book b = new Book("Philip K. Dick", "Człowiek z wysokiego zamku", 35, 2000);
@@ -61,6 +61,12 @@ public class LibraryTest {
 
     @Test
     public void getBooksGivenPrice() {
+        /*Book a = new Book("John Steinbeck", "Tortilla Flat", 25, 2000);
+        Book b = new Book("Philip K. Dick", "Człowiek z wysokiego zamku", 35, 2000);
+        Book c = new Book("William Faulkner", "Wściekłość i wrzask", 15, 2010);*/
+        List<Book> testListBook = Arrays.asList( new Book("John Steinbeck", "Tortilla Flat", 25, 2000));
+
+        assertEquals(testListBook, library.getBooksGivenPrice(25));
     }
 
     @Test
