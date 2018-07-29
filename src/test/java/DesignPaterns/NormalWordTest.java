@@ -1,5 +1,9 @@
-package DesignPaterns.Decorator;
+package DesignPaterns;
 
+import DesignPaterns.Decorator.NormalWord;
+import DesignPaterns.Decorator.Prefix;
+import DesignPaterns.Decorator.Sufix;
+import DesignPaterns.Decorator.WordDecorator;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

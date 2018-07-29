@@ -1,4 +1,4 @@
-package DesignPaterns.Decorator.TemplateMethod;
+package DesignPaterns.TemplateMethod;
 
 /**
  * Created by Grzesiek on 2018-07-29
@@ -15,8 +15,8 @@ public class BzwbkMoneyTransfer extends MoneyTransfer {
     }
 
     @Override
-    protected boolean addCommission() {
+    protected int addCommission() {
         System.out.println("Add commision " + commision);
-        return true;
+        return commision;
     }
 }

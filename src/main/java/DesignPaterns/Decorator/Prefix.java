@@ -1,8 +1,6 @@
 package DesignPaterns.Decorator;
 
 
-import lombok.AllArgsConstructor;
-
 /**
  * Created by Grzesiek on 2018-07-29
  */

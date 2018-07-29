@@ -1,4 +1,4 @@
-package DesignPaterns.Decorator.TemplateMethod;
+package DesignPaterns.TemplateMethod;
 
 import org.junit.Test;
 
@@ -13,7 +13,7 @@ public class PkoMoneyTransferTest {
 
     @Test
     public void pkoMoneyTransfer_should_return_True(){
-        assertEquals(true, pko.performTransfer(100));
+        assertEquals(true, pko.performTransfer(100, ()->0)); //jesli nie chcemy znizki implementujemy DiscountStrategy z pustym parametrem, lambda
     }
 
 }

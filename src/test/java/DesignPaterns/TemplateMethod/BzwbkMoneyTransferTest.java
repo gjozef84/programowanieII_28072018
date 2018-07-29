@@ -1,4 +1,4 @@
-package DesignPaterns.Decorator.TemplateMethod;
+package DesignPaterns.TemplateMethod;
 
 import org.junit.Test;
 
@@ -13,7 +13,7 @@ public class BzwbkMoneyTransferTest {
 
     @Test
     public void bzwbkTransfer_should_return_true(){
-        assertEquals(true, bzwbk.performTransfer(50));
+        assertEquals(true, bzwbk.performTransfer(50, new ChristmasDiscountStrategy()));
     }
 
 }
