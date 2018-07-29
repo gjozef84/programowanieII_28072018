@@ -7,6 +7,7 @@ public class NewYearDiscountStrategy implements DiscountStrategy {
 
     @Override
     public int addDiscount() {
+        System.out.println("add New Year Discount -10zł");
         return -10;
     }
 }

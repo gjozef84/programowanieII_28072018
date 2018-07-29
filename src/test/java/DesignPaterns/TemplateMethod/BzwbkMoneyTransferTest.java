@@ -1,5 +1,6 @@
 package DesignPaterns.TemplateMethod;
 
+import DesignPaterns.Strategy.ChristmasDiscountStrategy;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

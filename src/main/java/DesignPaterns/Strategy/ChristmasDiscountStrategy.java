@@ -1,4 +1,4 @@
-package DesignPaterns.TemplateMethod;
+package DesignPaterns.Strategy;
 
 import DesignPaterns.Strategy.DiscountStrategy;
 
@@ -9,6 +9,7 @@ public class ChristmasDiscountStrategy implements DiscountStrategy {
 
     @Override
     public int addDiscount() {
+        System.out.println("add Christmas Discount -5zł");
         return -5;
     }
 }
