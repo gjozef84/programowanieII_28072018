@@ -7,6 +7,6 @@ public class BrzydkiePrzywitanie implements WelcomeStrategy {
 
     @Override
     public String przywitanie() {
-        return "BRZYDKIE przywitanie";
+        return "Siema";
     }
 }

@@ -7,6 +7,6 @@ public class NormalnePrzywitanie implements WelcomeStrategy {
 
     @Override
     public String przywitanie() {
-        return "Normalne przywitanie";
+        return "Dzień dobry";
     }
 }
