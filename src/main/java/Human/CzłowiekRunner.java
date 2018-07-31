@@ -11,12 +11,18 @@ public class CzłowiekRunner {
 
         SpisLudnosci spisLudnosci = new SpisLudnosci("Adam, Kowalski, 21 ; Karol, Janiak,31 ; Anna, Marzanna,18;Kasia, Kowalska,0");
         List<Człowiek> listaCzłowiekow = spisLudnosci.splitStringToList(spisLudnosci.stringZlistaLudnosci);
-        for (Człowiek i: listaCzłowiekow
-             ) {
-            System.out.println(i.przedstawSie());
-        }
-        List<Człowiek> listaWithName = spisLudnosci.returnListHumanContainsName("Dupa");
-        System.out.println(listaWithName.get(0));
+        for (Człowiek i : listaCzłowiekow) {
+            System.out.println(i.przedstawSie());}
 
+        List<Człowiek> listaWithName = spisLudnosci.returnListHumanContainsSetName("Adam");
+        //System.out.println(listaWithName.get(0));
+
+        int age = 19;
+        System.out.println("\nLista ludzi młodszych niż "+age+" lat");
+        List<Człowiek> listYoungerThanAge = spisLudnosci.returnListHumanYoungerThanSetAge(age);
+
+        for (Człowiek i : listYoungerThanAge) {
+            System.out.println(i);
+        }
     }
 }

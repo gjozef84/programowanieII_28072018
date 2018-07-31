@@ -45,11 +45,28 @@ public class SpisLudnosci {
         return listaLudnosci;
     }
 
-    public List<Człowiek> returnListHumanContainsName(String name){
+    public List<Człowiek> returnListHumanContainsSetName(String name){
         return listaLudnosci.stream()
                 .filter(x -> x.imie.equals(name))
                 .collect(Collectors.toList());
     }
 
+    public List<Człowiek> returnListHumanContainsSetSurname(String surname){
+        return listaLudnosci.stream()
+                .filter(x -> x.nazwisko.equals(surname))
+                .collect(Collectors.toList());
+    }
+
+    public List<Człowiek> returnListHumanContainsSetAge(int age){
+        return listaLudnosci.stream()
+                .filter(x -> x.wiek.equals(age))
+                .collect(Collectors.toList());
+    }
+
+    public List<Człowiek> returnListHumanYoungerThanSetAge(int age){
+        return listaLudnosci.stream()
+                .filter(x -> x.wiek < age)
+                .collect(Collectors.toList());
+    }
 
 }
