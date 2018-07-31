@@ -26,7 +26,7 @@ public class Człowiek {
             this.nazwisko = nazwisko;
         }
 
-        public Builder wiek(int wiek){
+        public Builder setWiek(int wiek){
             this.wiek = wiek;
             return this;
         }
@@ -46,5 +46,14 @@ public class Człowiek {
         if(this.wiek!=null) result = result + " mam " +this.wiek + " lat";
 
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Człowiek{" +
+                "imie='" + imie + '\'' +
+                ", nazwisko='" + nazwisko + '\'' +
+                ", wiek=" + wiek +
+                '}';
     }
 }
