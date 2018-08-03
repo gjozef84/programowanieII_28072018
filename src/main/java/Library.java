@@ -115,4 +115,18 @@ public class Library {
 
         return returnList;
     }
+
+    public String getIntergerReturnString(List<Integer> listIntegers) {
+        String str = "";
+
+        for (int i = 0; i < listIntegers.size(); i++) {
+            if (listIntegers.get(i) % 2 == 0) {
+                str += "p" + listIntegers.get(i) + (i < listIntegers.size()-1 ? "," : "");
+            } else if (listIntegers.get(i) % 2 == 1) {
+                str += "n" + listIntegers.get(i) + (i < listIntegers.size()-1 ? "," : "");
+            }
+        }
+        System.out.println(str);
+        return str;
+    }
 }

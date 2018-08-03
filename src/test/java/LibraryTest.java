@@ -134,4 +134,10 @@ public class LibraryTest {
 
         assertEquals(Arrays.asList("smok", "stop", "Ssak"), library.searchSstring(stringListTest));
     }
+
+    @Test
+    public void getIntergerReturnString() {
+        List<Integer> listIntegerTest = Arrays.asList(1,5,10,21,99);
+        assertEquals("n1,n5,p10,n21,n99", library.getIntergerReturnString(listIntegerTest));
+    }
 }
