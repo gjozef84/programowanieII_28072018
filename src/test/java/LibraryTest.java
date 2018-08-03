@@ -115,4 +115,23 @@ public class LibraryTest {
     @Test
     public void setBooksList() {
     }
+
+    @Test
+    public void getPriceSumForAuthorExcludeTitle() {
+        assertEquals(0, library.getPriceSumForAuthorExcludeTitle("John Steinbeck", "Tortilla Flat"));
+    }
+
+    @Test
+    public void upperCase() {
+        List<String> stringListTest = Arrays.asList("Ania", "Iwona", "Dupa");
+
+        assertEquals(Arrays.asList("ANIA", "IWONA", "DUPA"), library.upperCase(stringListTest));
+    }
+
+    @Test
+    public void returnStringStartWithSandOnly4Letters(){
+        List<String> stringListTest = Arrays.asList("Ania", "smok", "Iwona", "Dupa", "stop", "Ssak", "Super");
+
+        assertEquals(Arrays.asList("smok", "stop", "Ssak"), library.searchSstring(stringListTest));
+    }
 }

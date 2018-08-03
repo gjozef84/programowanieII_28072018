@@ -85,13 +85,34 @@ public class Library {
 
     public List<Book> getListBooksPublishedInYear(int year) {
         return booksList.stream()
-                .filter(x -> x.getReleaseDate()==year)
+                .filter(x -> x.getReleaseDate() == year)
                 .collect(Collectors.toList());
     }
 
-    public List<Book> getListBooksPublishedInYearAndPriceLessThenValue(int year, int price){
+    public List<Book> getListBooksPublishedInYearAndPriceLessThenValue(int year, int price) {
         return getListBooksPublishedInYear(year).stream()
-                .filter(x -> x.getPrice()<=price)
+                .filter(x -> x.getPrice() <= price)
                 .collect(Collectors.toList());
+    }
+
+    public List<String> upperCase(List<String> listToUpper) {
+        List<String> returnList = new ArrayList<>();
+        for (String str : listToUpper) {
+            returnList.add(str.toUpperCase());
+        }
+
+        return returnList;
+    }
+
+    public List<String> searchSstring(List<String> stringListTest) {
+        List<String> returnList = new ArrayList<>();
+
+        for (String str : stringListTest) {
+            if ((str.startsWith("s") || str.startsWith("S") && str.length() == 4)) {
+                returnList.add(str);
+            }
+        }
+
+        return returnList;
     }
 }
