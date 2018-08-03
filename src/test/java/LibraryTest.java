@@ -1,6 +1,10 @@
+import junitparams.JUnitParamsRunner;
+import junitparams.Parameters;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,10 +15,12 @@ import static org.junit.Assert.*;
 /**
  * Created by Grzesiek on 2018-07-28
  */
+
+@RunWith(JUnitParamsRunner.class)
 public class LibraryTest {
 
     List<Book> booksList = new ArrayList<>();
-    public Library library = new Library(booksList);
+    Library library;
 
     @Before
     public void setUp() {
@@ -27,8 +33,9 @@ public class LibraryTest {
         Book g = new Book("Michaił Bułhakow", "Mistrz i Małgorzata", 10, 2009);
 
         booksList = Arrays.asList(a, b, c, d, e, f, g);
+        library = new Library(booksList);
 
-        library.setBooksList(booksList);
+        //library.setBooksList(booksList);
     }
 
     @Test
@@ -51,31 +58,54 @@ public class LibraryTest {
 
     @Test
     public void getOneAuthorBook() {
-        //List<Book> getJohnSteinbeck = Arrays.asList(a);
-        //assertEquals(getJohnSteinbeck, library.getOneAuthorBook("John Steinbeck"));
+        Book testBook = new Book("John Steinbeck", "Tortilla Flat", 25, 2000);
+        List<Book> getJohnSteinbeck = Arrays.asList(testBook);
+
+        assertEquals(getJohnSteinbeck.get(0).getAuthor(), library.getOneAuthorBook("John Steinbeck").get(0).getAuthor());
     }
 
     @Test
+
     public void getBookWithTitle() {
+        List<Book> testListBook1 = Arrays.asList( new Book("John Steinbeck", "Tortilla Flat", 25, 2000), new Book("Philip K. Dick", "Człowiek z wysokiego zamku", 35, 2000));
+
+        assertEquals(testListBook1.get(0).getTitle(), library.getBookWithTitle("Tortilla Flat").get(0).getTitle());
+        assertEquals(testListBook1.get(1).getTitle(), library.getBookWithTitle("Człowiek z wysokiego zamku").get(0).getTitle());
     }
 
     @Test
-    public void getBooksGivenPrice() {
-        /*Book a = new Book("John Steinbeck", "Tortilla Flat", 25, 2000);
-        Book b = new Book("Philip K. Dick", "Człowiek z wysokiego zamku", 35, 2000);
-        Book c = new Book("William Faulkner", "Wściekłość i wrzask", 15, 2010);*/
-        List<Book> testListBook = Arrays.asList( new Book("John Steinbeck", "Tortilla Flat", 25, 2000));
+    @Parameters({"John Steinbeck, 25",
+            "Philip K. Dick,35"})
+    public void getBooksGivenPrice(String expected, int b) {
 
-        assertEquals(testListBook, library.getBooksGivenPrice(25));
+       //List<Book> testListBook1 = Arrays.asList( new Book("John Steinbeck", "Tortilla Flat", 25, 2000), new Book("Philip K. Dick", "Człowiek z wysokiego zamku", 35, 2000));
+
+        assertEquals(expected, library.getBooksGivenPrice(b).get(0).getAuthor());
+        assertEquals(expected, library.getBooksGivenPrice(b).get(0).getAuthor());
     }
 
     @Test
     public void getBooksFromPriceRange() {
+        List<Book> testListBook1 = Arrays.asList( new Book("John Steinbeck", "Tortilla Flat", 25, 2000), new Book("Philip K. Dick", "Człowiek z wysokiego zamku", 35, 2000));
+
+        assertEquals(testListBook1.get(0).getTitle(), library.getBooksFromPriceRange(21,25).get(0).getTitle());
+        assertEquals(testListBook1.get(1).getTitle(), library.getBooksFromPriceRange(32,35).get(0).getTitle());
     }
 
     @Test
     public void getSumAllPrices() {
-        assertEquals(244, library.getSumAllPrices());
+        assertEquals(259, library.getSumAllPrices());
+    }
+
+    @Test
+    public void getListBooksPublishedInYear(){
+
+        assertEquals(booksList.get(6), library.getListBooksPublishedInYear(2009).get(0));
+    }
+
+    @Test
+    public void getListBooksPublishedInYearAndPriceLessThenValue(){
+        assertEquals(booksList.get(0), library.getListBooksPublishedInYearAndPriceLessThenValue(2000, 25).get(0));
     }
 
     @Test

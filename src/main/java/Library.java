@@ -59,9 +59,10 @@ public class Library {
                 .collect(Collectors.toList());
     }
 
-    public List<String> getBooksFromPriceRange(int from, int to) {
-        List<String> list = new ArrayList<>();
-        return list;
+    public List<Book> getBooksFromPriceRange(int from, int to) {
+        return booksList.stream()
+                .filter(x -> (x.getPrice() >= from && x.getPrice() <= to))
+                .collect(Collectors.toList());
     }
 
     public int getSumAllPrices() {
@@ -82,4 +83,15 @@ public class Library {
     }
 
 
+    public List<Book> getListBooksPublishedInYear(int year) {
+        return booksList.stream()
+                .filter(x -> x.getReleaseDate()==year)
+                .collect(Collectors.toList());
+    }
+
+    public List<Book> getListBooksPublishedInYearAndPriceLessThenValue(int year, int price){
+        return getListBooksPublishedInYear(year).stream()
+                .filter(x -> x.getPrice()<=price)
+                .collect(Collectors.toList());
+    }
 }

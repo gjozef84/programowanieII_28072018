@@ -34,7 +34,7 @@ public class SpisLudnosci {
             tabHuman = s.split(",");
             Człowiek czlowiekToList;
 
-            if (tabHuman[2].isEmpty()) {
+            if (tabHuman.length<3) {
                 czlowiekToList = new Człowiek.Builder(tabHuman[0], tabHuman[1]).build();
             } else {
                 czlowiekToList = new Człowiek.Builder(tabHuman[0], tabHuman[1]).setWiek(Integer.parseInt(tabHuman[2])).build();

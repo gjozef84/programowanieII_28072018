@@ -1,6 +1,7 @@
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.time.LocalDate;
 
@@ -11,12 +12,11 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Setter
 @Getter
+@ToString
 public class Book {
 
     private String author;
     private String title;
     private int price;
     private int releaseDate;
-
-
 }

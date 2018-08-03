@@ -1,8 +1,14 @@
 package Human;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * Created by Grzesiek on 2018-07-29
  */
+
+@Setter
+@Getter
 public class Człowiek {
 
     protected String imie;
